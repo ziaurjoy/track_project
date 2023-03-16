@@ -10,10 +10,10 @@ class Users(AbstractUser):
         return self.company_name
 
 
-
 class Devices(models.Model):
     name = models.CharField(max_length=50)
     model = models.CharField(max_length=50)
+    user = models.ForeignKey(Users, on_delete=models.SET_NULL, blank=True,null=True)
 
     def __str__(self):
         return self.name
