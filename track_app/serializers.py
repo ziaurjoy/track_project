@@ -19,3 +19,15 @@ class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Devices
         fields = ('name','model')
+
+
+class EmployeeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Employees
+        fields = ('name',)
+
+
+class TrackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Tracks
+        exclude = ('id', 'user')

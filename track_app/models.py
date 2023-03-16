@@ -21,6 +21,7 @@ class Devices(models.Model):
 
 class Employees(models.Model):
     name = models.CharField(max_length=50)
+    user = models.ForeignKey(Users, on_delete=models.SET_NULL, blank=True,null=True)
 
     def __str__(self):
         return self.name
@@ -39,6 +40,7 @@ class Tracks(models.Model):
     return_date = models.DateTimeField(blank=True, null=True)
     checked_out_status = models.CharField(choices=status, max_length=30)
     return_status = models.CharField(choices=status, max_length=30)
+    user = models.ForeignKey(Users, on_delete=models.SET_NULL, blank=True,null=True)
     
     def __str__(self):
         return self.employee.name
